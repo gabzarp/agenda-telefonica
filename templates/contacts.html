@@ -1,0 +1,44 @@
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="width:25%;">
+        Nome
+    </div>
+    <div style="width:25%;">
+        Data de nascimento
+    </div>
+    <div style="width:25%;">
+        Telefones
+    </div>
+    <div style="width:25%;">
+        Endereços
+    </div>
+</div>
+{% for contact in contacts %}
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="width:25%;">
+        {{contact.name}}
+    </div>
+    <div style="width:25%;">
+        {{contact.birthday}}
+    </div>
+    <div style="width:25%;">
+        <ul style="    list-style: none;
+        padding: 0;">
+            {% for phone in contact.phones %}
+                <li>
+                    {{phone.name}} : {{phone.phone}}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div style="width:25%;">
+        <ul style="    list-style: none;
+        padding: 0;">
+            {% for address in contact.addresses %}
+                <li>
+                    {{address.name}} : {{address.address}}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endfor %}
